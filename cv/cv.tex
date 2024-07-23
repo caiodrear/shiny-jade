@@ -1,0 +1,118 @@
+\documentclass[a4paper,10pt]{article}
+
+%A Few Useful Packages
+\usepackage{marvosym}
+\usepackage{fontspec}                   %for loading fonts
+\usepackage{xunicode,xltxtra,url,parskip}   %other packages for formatting
+\RequirePackage{color,graphicx}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[tmargin=0.7in,bmargin=0in,lmargin=1in,rmargin=1in]{geometry}
+\usepackage{supertabular}            
+\usepackage{titlesec}                   %custom \section
+
+%Setup hyperref package, and colours for links
+\usepackage{hyperref}
+\definecolor{linkcolour}{rgb}{0,0.2,0.6}
+\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour, linkcolor=linkcolour}
+
+%FONTS
+\defaultfontfeatures{Mapping=tex-text}
+%\setmainfont[SmallCapsFont = Fontin SmallCaps]{Fontin}
+%%% modified for Karol Kozioł for ShareLaTeX use
+\setmainfont[
+BoldFont = Fontin-Bold.otf,
+ItalicFont = Fontin-Italic.otf
+]
+{Fontin.otf}
+%%%
+
+%CV Sections inspired by: 
+%http://stefano.italians.nl/archives/26
+\titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{12pt}{12pt}
+%Tweak a bit the top margin
+%\addtolength{\voffset}{-1.3cm}
+
+%Italian hyphenation for the word: ''corporations''
+\hyphenation{im-pre-se}
+
+\usepackage[absolute]{textpos}
+
+\setlength{\TPHorizModule}{30mm}
+\setlength{\TPVertModule}{\TPHorizModule}
+\textblockorigin{2mm}{0.65\paperheight}
+\setlength{\parindent}{0pt}
+
+%final bullet list for projects
+\usepackage{tabularx}
+\newcommand{\blankline}{\multicolumn{1}{c}{}\\}
+\newcommand{\projectitem}{\footnotesize-~\ignorespaces}
+%--------------------BEGIN DOCUMENT----------------------
+\begin{document}
+
+\pagestyle{empty} % non-numbered pages
+
+\font\fb=''[cmr10]'' %for use with \LaTeX command
+
+%--------------------TITLE-------------
+\par{\centering
+        {\Huge Janice (Kejing) Zhong
+    }\par}
+
+% remove the space between the title and the subtitle
+% center the tabular
+\begin{center}
+\begin{tabular}{l|l}
++44 7541 515 112 & janicezhong96@gmail.com
+\end{tabular}
+\end{center}
+
+%Section: Projects section
+\section{Work Experience}
+\noindent
+\begin{tabularx}{\textwidth}{@{}r|>{\raggedright\arraybackslash}X@{}}
+  \emph{Current} &Solutions Manager at \textsc{Schroders}, London \\
+ \textsc{January 2024} & \emph{Insurance Solutions}\\
+& \projectitem Responsible for supporting prospects and clients under Solvency II/UK, BMA and APAC across a wide range of public and private assets.\\
+ & \projectitem Review Matching Adjustment applications, build tools for MA cashflow tests and provide strategic support, for participants in the UK PRT space.\\
+  & \projectitem Co-author thought leadership publications, supporting various distribution channels and driving commercial opportunities. \\
+  & \projectitem Perform SAA (top-down and bottom-up) for both prospects and existing clients.\\
+  \blankline
+
+\textsc{2022-24} & Senior Pricing Analyst at \textsc{Pacific Life Re}, London \\
+ & \emph{Global Funded Solutions}\\
+ & \projectitem Led the provision of quotes for funded reinsurance products across a range of clients within EMEA and APAC. \\
+  & \projectitem Was respobsible for the execution of a \$500M reinsurance deal, steering price update discussion internally and proposing price lever options. Additionally, oversaw complimentary work streams such as due diligence, investment management, reporting and legal.\\
+  & \projectitem Directed the internal approval process for a currency hedging strategy, communicating with senior management and stakeholders across multiple geographies. \\
+  & \projectitem Managed multiple quote and business development projects simultaneously, prioritising efficiently consistently meeting deadlines.\\
+  \blankline
+
+  \textsc{2019-2021} & Insurance Consultant at \textsc{PwC}, London \\
+ & \emph{Risk Modelling Services}\\
+ & \projectitem Led the actuarial review on a small UK life insurer acquisition as part of the financial due diligence function. \\
+ & \projectitem Was resonsible for a number of reserving projects across a range of general (re)insurance companies and SAOs for Lloyds of London and global specialty general insurance companies.\\
+  & \projectitem Led a team of 3 on a catastrophe research project during that produced quantitative and qualitative insights into events of this type that took place during the year, in additionm to providing reserving guidelines for insurance clients.\\
+  & \projectitem Led a liquidity model validation project for a settlement risk specialist, including designing validation plans and executing testing plans. Organised weekly client presentations, covering validation findings, advising remediation solutions, and drafting validation reports.\\
+  \blankline
+
+  \textsc{2017-2018} & Longevity Analyst at \textsc{M\&G Prudential}, Stirling \\
+ & \emph{Longevity}\\
+ & \projectitem Performed longevity experience analysis, built and maintained longevity models and undertook longevity risk management.\\
+\end{tabularx}
+
+\section{Qualifications and Education}
+
+\begin{tabular}{rl}	
+%----------------------------University---------------
+\textsc{June 2023} & Associate Actuary in \textsc{Investment}, IFoA\\
+\blankline
+\textsc{2015-19}& Bachelor of Science in \textsc{Actuarial Science}, Heriot-Watt University, Edinburgh\\
+&Grade: 2:1
+\end{tabular}
+
+\section{Technologies}
+\begin{tabular}{l|l|l|l}	
+MATLAB & SQL & Python & VBA
+\end{tabular}
+
+\end{document}

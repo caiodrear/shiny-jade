@@ -1,0 +1,8 @@
+# latex extensions
+*.aux
+*.log
+*.synctex.gz
+*.out
+*.fdb_latexmk
+*.fls
+*.xdv
