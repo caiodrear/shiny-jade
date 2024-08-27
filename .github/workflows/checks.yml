@@ -6,7 +6,7 @@ on:
 jobs:
   spellcheck:
     runs-on: ubuntu-latest
-    environment: dev
+    environment: qa
     steps:
     - name: 'Checkout GitHub Action'
       uses: actions/checkout@v3
