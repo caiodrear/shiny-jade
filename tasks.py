@@ -4,7 +4,40 @@ import sys
 
 from invoke import task
 
-KNOWN_WORDS = {"aspell", "tex", "en_GB"}
+LATEX_WORDS = {
+    "BoldFont",
+    "Fontin",
+    "ItalicFont",
+    "breaklinks",
+    "cmr",
+    "color",
+    "colorlinks",
+    "graphicx",
+    "linkcolor",
+    "linkcolour",
+    "otf",
+    "rgb",
+    "rl",
+    "urlcolor",
+}
+
+KNOWN_WORDS = {
+    "APAC",
+    "BMA",
+    "EMEA",
+    "Heriot",
+    "IFoA",
+    "Kejing",
+    "Lloyds",
+    "PRT",
+    "PwC",
+    "SAA",
+    "SAOs",
+    "Schroders",
+    "Zhong",
+    "cashflow",
+    "specialty",
+}
 
 
 def get_files_to_check():
@@ -22,7 +55,9 @@ def spellcheck(c):
         aspell_output = subprocess.check_output(
             ["aspell", "-t", "--list", "--lang=en_GB"], input=tex, text=True
         )
-        incorrect_words = set(aspell_output.split("\n")) - {""} - KNOWN_WORDS
+        incorrect_words = (
+            set(aspell_output.split("\n")) - {""} - (LATEX_WORDS + KNOWN_WORDS)
+        )
         if len(incorrect_words) > 0:
             print(f"In {tex_path} the following words are not known: ")
             for string in sorted(incorrect_words):
