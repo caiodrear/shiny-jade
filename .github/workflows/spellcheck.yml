@@ -1,34 +1,35 @@
-name: Spell Check LaTeX Files
+name: Test prose
 
-on: [push, pull_request]
+on:
+  push:
+  pull_request:
 
 jobs:
-  spellcheck:
-    runs-on: ubuntu-latest
+  build:
+
+    runs-on: ${{ matrix.os }}
+    strategy:
+      max-parallel: 4
+      matrix:
+        os: [ubuntu-latest]
+        python-version: [3.8]
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+    - uses: actions/checkout@v1
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v1
+      with:
+        python-version: ${{ matrix.python-version }}
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.12'
+    - name: Install python dependencies
+      run: |
+        python -m pip install -U pip
+        python -m pip install -r requirements.txt
 
-      - name: Install ltex-ls
-        run: |
-          pip install ltex-ls
+    - name: Install aspell (spell checker)
+      run: |
+        sudo apt-get install aspell aspell-en
 
-      - name: Run ltex-ls on LaTeX files
-        run: |
-          # Find all .tex files and run ltex-ls on each
-          for file in $(find . -name "*.tex"); do
-            echo "Checking $file"
-            ltex-ls $file --language=en-US --output=reports/$(basename $file).json
-          done
-
-      - name: Upload reports
-        uses: actions/upload-artifact@v3
-        with:
-          name: spellcheck-reports
-          path: reports/
+    - name: Run spell checker
+      run: |
+        inv spellcheck

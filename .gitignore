@@ -6,3 +6,6 @@
 *.fdb_latexmk
 *.fls
 *.xdv
+
+# python
+.venv
