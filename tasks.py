@@ -4,7 +4,7 @@ import sys
 
 from invoke import task
 
-KNOWN_WORDS = ["aspell", "tex", "en_GB"]
+KNOWN_WORDS = {"aspell", "tex", "en_GB"}
 
 
 def get_files_to_check():
