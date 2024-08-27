@@ -56,7 +56,7 @@ def spellcheck(c):
             ["aspell", "-t", "--list", "--lang=en_GB"], input=tex, text=True
         )
         incorrect_words = (
-            set(aspell_output.split("\n")) - {""} - (LATEX_WORDS + KNOWN_WORDS)
+            set(aspell_output.split("\n")) - {""} - (LATEX_WORDS | KNOWN_WORDS)
         )
         if len(incorrect_words) > 0:
             print(f"In {tex_path} the following words are not known: ")
