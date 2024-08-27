@@ -1,0 +1,34 @@
+name: Spell Check LaTeX Files
+
+on: [push, pull_request]
+
+jobs:
+  spellcheck:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+
+      - name: Install ltex-ls
+        run: |
+          pip install ltex-ls
+
+      - name: Run ltex-ls on LaTeX files
+        run: |
+          # Find all .tex files and run ltex-ls on each
+          for file in $(find . -name "*.tex"); do
+            echo "Checking $file"
+            ltex-ls $file --language=en-US --output=reports/$(basename $file).json
+          done
+
+      - name: Upload reports
+        uses: actions/upload-artifact@v3
+        with:
+          name: spellcheck-reports
+          path: reports/
