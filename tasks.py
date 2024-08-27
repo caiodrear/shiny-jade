@@ -5,7 +5,6 @@ import sys
 from invoke import task
 
 LATEX_WORDS = {
-    "tex",
     "BoldFont",
     "Fontin",
     "ItalicFont",
