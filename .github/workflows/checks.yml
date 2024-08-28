@@ -5,6 +5,6 @@ on:
 
 jobs:
   spellcheck:
-    - uses: caiodrear/means-of-production/.github/workflows/latex-spellcheck.yml@main
-      with:
-        environment: 'qa'
+    uses: caiodrear/means-of-production/.github/workflows/latex-spellcheck.yml@main
+    with:
+      environment: 'qa'
