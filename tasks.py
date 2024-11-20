@@ -38,11 +38,11 @@ KNOWN_WORDS = {
     "Zhong",
     "cashflow",
     "specialty",
-   "IC",
-"PRA",
-"RfPs",
-"SAAs",
-"analytics"
+    "IC",
+    "PRA",
+    "RfPs",
+    "SAAs",
+    "analytics",
 }
 
 
